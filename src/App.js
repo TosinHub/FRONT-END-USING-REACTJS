@@ -2,8 +2,8 @@ import React from "react";
 import {Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
 import Memories from './images/img.jpg'
 
-import Posts from './components/Posts/Posts.js'
-import Form from './components/Posts/Form.js'
+import Posts from './component/Posts/Posts.js'
+import Form from './component/Form/Form.js'
 
 
 const App = () =>{
