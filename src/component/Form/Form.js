@@ -20,8 +20,9 @@ const Form = () =>{
     const dispatch = useDispatch();
     
     const handleSubmit = (e) =>{
-      // e.preventDefault();
-        dispatch(createPost(postData))
+       e.preventDefault();
+       dispatch(createPost(postData))
+       window.location.reload();
         
     
     }
@@ -52,7 +53,7 @@ const Form = () =>{
       </div>
 
       <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' fullWidth type="submit" >Submit</Button>
-      <Button variant='contained' color='secondary' size='small' type="submit" fullWidth onClick={clear} >Clear</Button>
+      <Button variant='contained' color='secondary' size='small'  fullWidth onClick={clear} >Clear</Button>
        </form>
    </Paper>
     )

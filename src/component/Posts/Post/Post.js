@@ -12,7 +12,7 @@ import moment from 'moment'
 
 const Post = ({post}) =>{
   const classes = useStyles();
-
+  
     return (
     <Card className={classes.card}>
         <CardMedia className={classes.media} image={post.selectedFile} title={post.title} />
