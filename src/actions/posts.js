@@ -1,4 +1,4 @@
-import * as api from '../api'
+//import * as api from '../api'
 
 import axios from 'axios';
 
@@ -28,7 +28,9 @@ export const getPosts =  () => async(dispatch) => {
 
 export const createPost =  (post) => async(dispatch) => {
     try {
-        const data = await api.createPost(post) ;
+
+       
+        const data = await  axios.post(url,post);
           
        dispatch({ type: 'CREATE', payload: data})
     } catch (error) {
@@ -37,4 +39,3 @@ export const createPost =  (post) => async(dispatch) => {
   
 }
 
-getPosts();

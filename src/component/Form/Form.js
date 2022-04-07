@@ -20,9 +20,10 @@ const Form = () =>{
     const dispatch = useDispatch();
     
     const handleSubmit = (e) =>{
-        e.preventDefault();
+      // e.preventDefault();
         dispatch(createPost(postData))
-       // console.log(postData)
+        
+    
     }
 
     const clear =()=>{

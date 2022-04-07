@@ -8,13 +8,10 @@ export const fetchPosts = () =>{
         return response.data
     } ) 
 } 
-fetchPosts()
+
 
 export const createPost = (newPost) =>{
     axios.post(url,newPost)
 } 
 
 
-//const data =    await axios.get(url)
-
-//console.log(data)
