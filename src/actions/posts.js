@@ -9,12 +9,12 @@ const url = 'http://localhost:5000/posts'
 
 export const getPosts =  () => async(dispatch) => {
     try {
-     //   const {data} = await api.fetchPosts ;
+     //const {data} = await api.fetchPosts ;
     //   console.log(data)
 
 
       await axios.get(url).then((response) =>{
-         // console.log(response.data)
+       
          dispatch({ type: 'FETCH_ALL', payload: response.data})
     } )
       
@@ -39,3 +39,14 @@ export const createPost =  (post) => async(dispatch) => {
   
 }
 
+
+export const updatePost = (id, post) => async (dispatch) =>{
+    try {
+        const data = await axios.patch(`${url}/${id}`, post)
+        console.log(data)
+        dispatch({type : "UPDATE", payload: data})
+         
+    } catch (error) {
+        console.log(error)
+    }
+}

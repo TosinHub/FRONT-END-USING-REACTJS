@@ -14,4 +14,5 @@ export const createPost = (newPost) =>{
     axios.post(url,newPost)
 } 
 
+export const updatedPost = (id, updatedPost) => axios.patch(`${url}/${id}`, updatedPost)
 
