@@ -42,9 +42,36 @@ export const createPost =  (post) => async(dispatch) => {
 
 export const updatePost = (id, post) => async (dispatch) =>{
     try {
-        const data = await axios.patch(`${url}/${id}`, post)
-        console.log(data)
+        const {data} = await axios.patch(`${url}/${id}`, post)
+      
         dispatch({type : "UPDATE", payload: data})
+         
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+export const deletePost = (_id) => async (dispatch) =>{
+    try {
+        await axios.delete(`${url}/${_id}`)
+     
+        dispatch({type : "DELETE", payload: _id})
+         
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+export const likePost = (_id) => async (dispatch) =>{
+    try {
+       const {data} =  await axios.delete(`${url}/${_id}/likeCount`)
+
+       dispatch({type : "LIKE", payload: data})
+     
          
     } catch (error) {
         console.log(error)
