@@ -23,9 +23,6 @@ const Form = ({currentId, setCurrentId}) =>{
         if(post) setPostData(post)
     },[post])
 
-    React.useEffect(() =>{
-        if(post) setPostData(post)
-    }, [post])
     
     const handleSubmit = (e) =>{
        e.preventDefault();

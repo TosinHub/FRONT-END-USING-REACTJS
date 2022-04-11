@@ -26,11 +26,11 @@ export const getPosts =  () => async(dispatch) => {
    
 }
 
-export const createPost =  (post) => async(dispatch) => {
+export const createPost = (post) => async(dispatch) => {
     try {
 
        
-        const data = await  axios.post(url,post);
+        const {data} = await  axios.post(url,post);
           
        dispatch({ type: 'CREATE', payload: data})
     } catch (error) {
@@ -68,7 +68,7 @@ export const deletePost = (_id) => async (dispatch) =>{
 
 export const likePost = (_id) => async (dispatch) =>{
     try {
-       const {data} =  await axios.delete(`${url}/${_id}/likeCount`)
+       const {data} =  await axios.delete(`${url}/${_id}/likePost`)
 
        dispatch({type : "LIKE", payload: data})
      
