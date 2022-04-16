@@ -7,7 +7,7 @@ const url = 'http://localhost:5000/posts'
 
 //Action creators
 
-export const getPosts =  () => async(dispatch) => {
+export const getPosts =  () => async (dispatch) => {
     try {
      //const {data} = await api.fetchPosts ;
     //   console.log(data)
