@@ -17,6 +17,7 @@ const App = () =>{
              <Route path="/" exact component={Home} />
              <Route path="/auth" component={Auth} />
          </Switch>
+      
       </Container>
       </BrowserRouter>
     )

@@ -1,7 +1,7 @@
 import React from "react";
 import {Link,useHistory, useLocation} from 'react-router-dom'
 import {AppBar, Avatar, Toolbar, Typography,Button} from "@material-ui/core";
-
+import decode from 'jwt-decode'
 import Memories from '../../images/img.jpg'
 import { useDispatch } from "react-redux";
 
@@ -18,10 +18,15 @@ const Navbar = () => {
     const location = useLocation()
 
 
-    console.log(JSON.parse(localStorage.getItem('profile')))
-
+    
     React.useEffect(() =>{
         const token = user?.token
+
+        if(token){
+            const decodeToken = decode(token)
+            if (decodeToken.exp * 1000 < new Date().getTime()) logOut()
+        }
+
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [location])
 
@@ -33,6 +38,7 @@ const Navbar = () => {
         window.location.reload();
         setUser(null)
     }
+    
     return(
    
                 <AppBar className={classes.appBar} position="static" color="inherit">

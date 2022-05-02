@@ -90,7 +90,7 @@ const Auth = () => {
                
                             <Button type="submit" fullWidth variant ="contained" color="primary" className={classes.submit}>
                            
-                                
+                               ;;x;x 
                             {isSignUp ? 'Sign Up' : 'Sign In'}  
                             </Button>
                                   <GoogleLogin

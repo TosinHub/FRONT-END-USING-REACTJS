@@ -1,8 +1,7 @@
-//import * as api from '../api'
 
-import axios from 'axios';
+import API from "./api"
 
-const url = 'http://localhost:5000/posts'
+
 
 
 //Action creators
@@ -13,7 +12,7 @@ export const getPosts =  () => async (dispatch) => {
     //   console.log(data)
 
 
-      await axios.get(url).then((response) =>{
+      await API.get('/posts').then((response) =>{
        
          dispatch({ type: 'FETCH_ALL', payload: response.data})
     } )
@@ -29,12 +28,13 @@ export const getPosts =  () => async (dispatch) => {
 export const createPost = (post) => async(dispatch) => {
     try {
 
-       
-        const {data} = await  axios.post(url,post);
+       //console.log(post)
+        const {data} = await  API.post('/posts',post);
           
        dispatch({ type: 'CREATE', payload: data})
+     
     } catch (error) {
-        
+        console.log(error)
     }
   
 }
@@ -42,7 +42,7 @@ export const createPost = (post) => async(dispatch) => {
 
 export const updatePost = (id, post) => async (dispatch) =>{
     try {
-        const {data} = await axios.patch(`${url}/${id}`, post)
+        const {data} = await API.patch(`posts/${id}`, post)
       
         dispatch({type : "UPDATE", payload: data})
          
@@ -55,7 +55,7 @@ export const updatePost = (id, post) => async (dispatch) =>{
 
 export const deletePost = (_id) => async (dispatch) =>{
     try {
-        await axios.delete(`${url}/${_id}`)
+        await API.delete(`posts/${_id}`)
      
         dispatch({type : "DELETE", payload: _id})
          
@@ -68,7 +68,7 @@ export const deletePost = (_id) => async (dispatch) =>{
 
 export const likePost = (_id) => async (dispatch) =>{
     try {
-       const {data} =  await axios.delete(`${url}/${_id}/likePost`)
+       const {data} =  await API.delete(`posts/${_id}/likePost`)
 
        dispatch({type : "LIKE", payload: data})
      

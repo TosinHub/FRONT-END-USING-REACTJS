@@ -1,10 +1,11 @@
-import axios from 'axios';
+import API from "./api"
 
-const url = 'http://localhost:5000/user'
+
+
 
 export const signin =(formData,history) => async (dispatch) =>{
     try {   
-    const {data} = await axios.post(`${url}/signin`, formData)
+    const {data} = await API.post('/user/signin', formData)
         console.log(data)
     dispatch({ type: 'AUTH', data})
 
@@ -13,12 +14,15 @@ export const signin =(formData,history) => async (dispatch) =>{
         console.log(error)
     }
 }
+
+
 export const signup =(formData,history) => async (dispatch) =>{
     try {
-        const {data} = await axios.post(`${url}/signup`, formData)
-
+        const {data} = await API.post('user/signup', formData)
+        //console.log(data)
         dispatch({ type: 'AUTH', data})
+        history.push('/')
     } catch (error) {
-        
+        console.log(error)
     }
 }
